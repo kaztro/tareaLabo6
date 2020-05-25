@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio</title>
+</head>
+<body>
+    <form th:action="@{/filter}" th:object="${contribuyente}" method="POST">
+        
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" th:field="*{s_nombre}">
+        <span th:errors="*{s_nombre}" style="color: red;"></span>
+        <br>
+        
+        <label for="apellido">Apellido:</label>
+        <input type="text" name="apellido" th:field="*{s_apellido}">
+        <span th:errors="*{s_apellido}" style="color: red;"></span>
+        <br>
+        
+        <label for="nit">NIT:</label>
+        <input type="text" name="nit" th:field="*{s_nit}">
+        <span th:errors="*{s_nit}" style="color: red;"></span>
+        <br>
+        
+        <label for="importancia">Importancia:</label>
+        <select name="importancia" th:field="*{c_importancia}">
+            <option th:each="importancia, row: ${listImp}" th:value="${importancia.c_importancia}" th:text="${importancia.s_importancia}"></option>
+        </select>
+        <br>
+
+        <input type="submit" value="Almacenar">
+    </form>
+    <br>
+    <form th:action="@{/listado}" method="POST">
+        <input type="submit" value="Revisar lista de contribuyentes">
+    </form>
+    
+</body>
+</html>

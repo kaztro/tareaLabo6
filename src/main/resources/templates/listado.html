@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<meta charset="ISO-8859-1">
+<title>Listado de contribuyentes</title>
+</head>
+<body>
+
+	<table>
+		
+		<thead>
+			<th>Nombre</th>
+            <th>Apellido</th>
+            <th>NIT</th>
+            <th>Importancia</th>
+            <th>Fecha de ingreso</th>
+		</thead>
+
+		<th:block th:each="contribuyente, row: ${listCont}">
+			<tr>
+				<th th:text="${contribuyente.s_nombre}"></th>
+                <th th:text="${contribuyente.s_apellido}"></th>
+                <th th:text="${contribuyente.s_nit}"></th>
+                <th th:text="${contribuyente.importancia.s_importancia}"></th>
+                <th th:text="${contribuyente.f_fecha_ingreso}"></th>
+			</tr>
+		</th:block>
+		
+	</table>
+	<br>
+	<br>
+    <form th:action="@{/index}" method="POST">
+        <input type="submit" value="Ingresar más contribuyentes">
+    </form>
+
+</body>
+</html>

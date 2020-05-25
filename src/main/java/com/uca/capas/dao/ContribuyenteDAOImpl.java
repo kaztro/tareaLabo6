@@ -27,6 +27,7 @@ public class ContribuyenteDAOImpl implements ContribuyenteDAO {
 		
 		return resultset;
 	}
+	
 	@Transactional
 	@Override
 	public void insert(Contribuyente contribuyente) throws DataAccessException {
