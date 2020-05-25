@@ -23,8 +23,7 @@ public class ContribuyenteServiceImpl implements ContribuyenteService {
 	
 	@Override
 	public List<Contribuyente> findAll() throws DataAccessException {
-		// TODO Auto-generated method stub
-		return null;
+		return contribuyenteDAO.findAll();
 	}
 	
 	@Transactional
